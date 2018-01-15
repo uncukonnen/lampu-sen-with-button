@@ -1,0 +1,41 @@
+/*
+ uncu konnen
+ Deesainan uncu
+ 
+ 20- Nov -2017 23.09 WIB, Jakarta
+
+" membuat penditeksi gas dengan menggunakan MQ2 "
+
+ */
+
+
+int red = 17;
+int sensorValue = 0;
+int buzzer = 18 ;
+int analog = 27;
+
+ void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(red, OUTPUT);
+pinMode(analog, INPUT);
+pinMode (buzzer, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+sensorValue=analogRead(27);
+Serial.println(sensorValue);
+
+if(sensorValue > 1500)
+{
+digitalWrite(red, HIGH);
+digitalWrite(buzzer, HIGH);
+}
+else
+{
+digitalWrite(red, LOW);
+digitalWrite(buzzer, LOW);
+}
+}
